@@ -15,7 +15,7 @@ import Configuracion.Transacciones;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText nombres, apellidos, telefono;
+    EditText nombres, apellidos, edad, correo;
     Button BtnProcesar;
 
     @Override
@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         nombres = (EditText) findViewById(R.id.nombres);
         apellidos = (EditText) findViewById(R.id.apellidos);
-        telefono = (EditText) findViewById(R.id.telefono);
+        edad = (EditText) findViewById(R.id.edad);
+        correo = (EditText) findViewById(R.id.correo);
         BtnProcesar = (Button) findViewById(R.id.BtnProcesar);
 
         BtnProcesar.setOnClickListener(new View.OnClickListener() {
@@ -42,5 +43,14 @@ public class MainActivity extends AppCompatActivity {
 
         ContentValues valores = new ContentValues();
         valores.put(Transacciones.nombres, nombres.getText().toString());
+        valores.put(Transacciones.apellidos, apellidos.getText().toString());
+        valores.put(Transacciones.edad, edad.getText().toString());
+        valores.put(Transacciones.correo, correo.getText().toString());
+
+        Long resultado = db.insert(Transacciones.TablePersonas, Transacciones.id, valores);
+
+        Toast.makeText(getApplicationContext(), "Registro Ingresado con exito" + resultado.toString(), Toast.LENGTH_LONG).show();
+
+        db.close();
     }
 }
