@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         Long resultado = db.insert(Transacciones.TablePersonas, Transacciones.id, valores);
 
-        Toast.makeText(getApplicationContext(), "Registro Ingresado con exito" + resultado.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Registro Ingresado con exito " + resultado.toString(), Toast.LENGTH_LONG).show();
 
         db.close();
     }
