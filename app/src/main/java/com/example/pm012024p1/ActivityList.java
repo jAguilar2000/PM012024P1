@@ -2,9 +2,12 @@ package com.example.pm012024p1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -32,8 +35,27 @@ public class ActivityList extends AppCompatActivity {
         
         ObtenerInfo();
 
+        listpersonas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Personas personaSeleccionada = lista.get(position);
+                Intent intent = new Intent(ActivityList.this, MainActivity.class);
+
+                intent.putExtra("id", personaSeleccionada.getId().toString());
+                intent.putExtra("nombres", personaSeleccionada.getNombres());
+                intent.putExtra("apellidos", personaSeleccionada.getApellidos());
+                intent.putExtra("edad", personaSeleccionada.getEdad());
+                intent.putExtra("correo", personaSeleccionada.getCorreo());
+                intent.putExtra("direccion", personaSeleccionada.getDireccion());
+                startActivity(intent);
+
+            }
+
+        });
+
         ArrayAdapter adp = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Arreglo);
         listpersonas.setAdapter(adp);
+
     }
 
     private void ObtenerInfo() {
@@ -50,6 +72,7 @@ public class ActivityList extends AppCompatActivity {
             person.setApellidos(cursor.getString(2));
             person.setEdad(cursor.getInt(3));
             person.setCorreo(cursor.getString(4));
+            person.setDireccion(cursor.getString(5));
 
             lista.add(person);
         }

@@ -1,5 +1,7 @@
 package Configuracion;
 
+import android.content.Intent;
+
 public class Transacciones
 {
     //Nombre de la base de datos
@@ -14,12 +16,13 @@ public class Transacciones
     public static final String apellidos = "apellidos";
     public static final String edad = "edad";
     public static final String correo = "correo";
+    public static final String direccion = "direccion";
 
 
     //DDL Create
     public static final String CreateTablePersonas = "Create table " + TablePersonas + " (" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT, nombres TEXT, apellidos TEXT, edad INTEGER, "+
-            "correo TEXT )";
+            "correo TEXT, direccion TEXT )";
 
 
     // DDL Drop

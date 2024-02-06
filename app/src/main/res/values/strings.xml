@@ -8,4 +8,7 @@
     <string name="correo">Ingrese correo</string>
     <string name="PantallaIngreso">Agregar Persona</string>
     <string name="PantallaLista">Lista Personas</string>
+    <string name="Eliminar">Eliminar</string>
+    <string name="Btn_Eliminar">Eliminar</string>
+    <string name="direccion">Ingrese Dirección</string>
 </resources>
