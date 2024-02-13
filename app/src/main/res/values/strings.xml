@@ -11,4 +11,5 @@
     <string name="Eliminar">Eliminar</string>
     <string name="Btn_Eliminar">Eliminar</string>
     <string name="direccion">Ingrese Dirección</string>
+    <string name="TomarFoto">Capturar Foto</string>
 </resources>

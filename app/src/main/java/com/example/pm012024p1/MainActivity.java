@@ -43,12 +43,14 @@ public class MainActivity extends AppCompatActivity {
             String apellidosPersona = intent.getStringExtra("apellidos");
             int edadPersona = intent.getIntExtra("edad", 0);
             String correoPersona = intent.getStringExtra("correo");
+            String direccionPersona = intent.getStringExtra("direccion");
 
             // Llena los campos con los datos recuperados
             nombres.setText(nombresPersona);
             apellidos.setText(apellidosPersona);
             edad.setText(String.valueOf(edadPersona));
             correo.setText(correoPersona);
+            direccion.setText(direccionPersona);
         }
 
         BtnProcesar.setOnClickListener(new View.OnClickListener() {
